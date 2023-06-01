@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mViewModel"
+            type="com.strength.databindingwithlivedata.viewmodel.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="100dp"
+            android:layout_above="@id/quote_text_text_view_MA"
+            android:layout_marginBottom="50dp"
+            android:text="@={mViewModel.quoteLiveData.quoteText}"
+            android:hint="This is preview text."
+            />
+
+        <TextView
+            android:id="@+id/quote_text_text_view_MA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mViewModel.quoteLiveData.quoteText}"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/quote_author_text_view_MA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mViewModel.quoteLiveData.quoteAuthor}"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/quote_text_text_view_MA"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/update_quote_button_MA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Quote"
+            android:layout_below="@id/quote_author_text_view_MA"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp" />
+
+    </RelativeLayout>
+
+</layout>
